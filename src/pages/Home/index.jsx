@@ -4,7 +4,7 @@ import styles from "./Home.module.css";
 const HomePage = () => {
   return (
     <div className={styles["home-page"]}>
-      <h1>Home</h1>
+      <h1 className="text-3xl font-bold underline text-green-500">Home</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
         doloremque, quidem quisquam, quisquam quisquam quisquam quisquam
