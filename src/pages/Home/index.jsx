@@ -10,7 +10,9 @@ const HomePage = () => {
         doloremque, quidem quisquam, quisquam quisquam quisquam quisquam
         dignissimos.
       </p>
-      <Link to="/login">Login</Link>
+      <Link to="/login">Lazy Login</Link>
+      <Link to="/auth/login">Nested Auth - Login</Link>
+      <Link to="/dashboard">Private Home</Link>
     </div>
   );
 };

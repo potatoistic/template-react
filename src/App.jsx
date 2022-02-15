@@ -1,4 +1,4 @@
-import { Router } from "./Routes";
+import Router from "./routes";
 
 export const App = () => (
   <div>
