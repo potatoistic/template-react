@@ -1,8 +1,10 @@
+import { useMutation } from "react-query";
 import styles from "./Login.module.css";
 
 import AuthService from "../../shared/services/auth";
 
 const LoginPage = () => {
+  const loginMutation = useMutation((dto) => AuthService.loginHandler(dto));
   const handleLogin = async () => {
     try {
       const dto = {
@@ -10,9 +12,7 @@ const LoginPage = () => {
         password: "admin",
       };
 
-      const data = await AuthService.loginHandler(dto);
-
-      console.log(data);
+      loginMutation.mutate(dto);
     } catch (e) {
       console.error("Login.jsx: ", e);
     }
@@ -26,7 +26,10 @@ const LoginPage = () => {
         doloremque, quidem quisquam, quisquam quisquam quisquam quisquam
         dignissimos.
       </p>
-      <button onClick={handleLogin}>Login</button>
+      { loginMutation.isError && <div>Something went wrong!</div>}
+      <button onClick={handleLogin} disabled={loginMutation.isLoading}>
+        Login
+      </button>
     </div>
   );
 };
